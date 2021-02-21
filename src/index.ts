@@ -14,12 +14,17 @@ type MessageTypeWhisper = 'Whisper';
 
 export type MessageType = MessageTypeDefault | MessageTypeSystem | MessageTypeMeCommand | MessageTypeWelcome | MessageTypeSetCore | MessageTypeWhisper;
 
+export interface ChatTag {
+	TagText?: string;
+	TagColor?: Color3;
+}
+
 interface ExtraDataFull {
 	ChatColor: Color3;
 	NameColor: string;
 	Font: Enum.Font;
 	TextSize: number;
-	Tags: Array<string>;
+	Tags: Array<ChatTag>;
 }
 export type ExtraData = Partial<ExtraDataFull>;
 
