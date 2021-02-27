@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/chat-service",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Roblox chat service typings",
   "main": "out/init.lua",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xethlyx/rbxts-chat-service.git"
+    "url": "git+https://github.com/synergence/rbxts-chat-service.git"
   },
   "keywords": [],
   "author": "",
   "license": "Unlicense",
   "bugs": {
-    "url": "https://github.com/xethlyx/rbxts-chat-service/issues"
+    "url": "https://github.com/synergence/rbxts-chat-service/issues"
   },
-  "homepage": "https://github.com/xethlyx/rbxts-chat-service#readme",
+  "homepage": "https://github.com/synergence/rbxts-chat-service#readme",
   "publishConfig": {
     "access": "public"
   },
