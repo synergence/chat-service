@@ -22,8 +22,8 @@
 	},
 	"types": "out/index.d.ts",
 	"devDependencies": {
-		"@rbxts/compiler-types": "^1.0.0-beta.15.1",
-		"@rbxts/types": "^1.0.453"
+		"@rbxts/compiler-types": "^1.0.0-types.0",
+		"@rbxts/types": "^1.0.462"
 	},
 	"files": [
 		"out/",

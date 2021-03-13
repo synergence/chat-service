@@ -1,16 +1,16 @@
 devDependencies:
-  '@rbxts/compiler-types': 1.0.0-beta.15.1
-  '@rbxts/types': 1.0.453
+  '@rbxts/compiler-types': 1.0.0-types.0
+  '@rbxts/types': 1.0.462
 lockfileVersion: 5.2
 packages:
-  /@rbxts/compiler-types/1.0.0-beta.15.1:
+  /@rbxts/compiler-types/1.0.0-types.0:
     dev: true
     resolution:
-      integrity: sha512-xF7i8n4dBzj9nIPoI2GLNdTtk0ijEJy6mkZ4PAlpxj39sQOR7ekyaOG/wyoB1D1+m4yIz2uCtviLvVJI47BjnQ==
-  /@rbxts/types/1.0.453:
+      integrity: sha512-DMYByLmapF5T04l1Jmg71BZNmR8sFhDt/aq9aV9X8JjnQimnCCBFK+FzdHh9Nx40D/o+k9vYn5aS58g8kISlYQ==
+  /@rbxts/types/1.0.462:
     dev: true
     resolution:
-      integrity: sha512-AhG48CVN4Cb+OsRjopiLzL+u5uDFsKI7CEMaARrDBIOk10wxxW3Tn9Iz/lAWOhC9W4oJVvCkF6SUFEe2EgVWlQ==
+      integrity: sha512-MaCY4dAtQYVDYAZwCHN7IpGpbU89iJRUvWTjV7qO5lCbpZTCeBtDCpNyTdkP45tqFUUhIdHizRnSoUY56nCD3w==
 specifiers:
-  '@rbxts/compiler-types': ^1.0.0-beta.15.1
-  '@rbxts/types': ^1.0.453
+  '@rbxts/compiler-types': ^1.0.0-types.0
+  '@rbxts/types': ^1.0.462
