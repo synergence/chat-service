@@ -33,12 +33,32 @@ export type ExtraData = Partial<ExtraDataFull>;
  * All ModuleScripts within the ChatModules Folder should return a function; that function will be called with the ChatService singleton (this object).
  */
 export interface ChatService {
+	//! PROPERTIES
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	readonly MessageIdCounter: number;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	readonly ChatServiceMajorVersion: number;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	readonly ChatServiceMinorVersion: number;
+
 	//! METHODS
 
 	/**
 	 * Creates a ChatChannel object with the given name and returns it.
 	 */
-	AddChannel(channelName: string): ChatChannel;
+	AddChannel(channelName: string, autoJoin?: boolean): ChatChannel;
 
 	/**
 	 * Remove a channel with the given name
@@ -66,6 +86,12 @@ export interface ChatService {
 	GetSpeaker(speakerName: string): ChatSpeaker;
 
 	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	GetSpeakerByUserOrDisplayName(speakerName: string): ChatSpeaker;
+
+	/**
 	 * Returns a list of the names of all non-private channels in the chat.
 	 */
 	GetChannelsList(): Array<string>;
@@ -74,6 +100,12 @@ export interface ChatService {
 	 * Returns a list of the names of all channels in the chat with AutoJoin set to true.
 	 */
 	GetAutoJoinChannelList(): Array<string>;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	SendGlobalSystemMessage(message: string): void;
 
 	/**
 	 * Registers a filter function to the chat identified by functionId. Any changes to the message will persist and be displayed when the message makes it through all of the other filter functions. This function is passed the speaker’s name, the message object, and the channel the message originated in.
@@ -162,6 +194,36 @@ export interface ChatChannel {
 	WelcomeMessage: string;
 
 	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	readonly GetWelcomeMessageFunction: (speaker: ChatSpeaker) => void;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	readonly ChannelNameColor: Color3;
+
+	/**
+	 * @deprecated
+	 * Undocumented, use IsSpeakerMuted wherever possible
+	 */
+	readonly Mutes: ReadonlyMap<string, number>;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	readonly MaxHistory: number;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	readonly HistoryIndex: number;
+
+	/**
 	 * Determines whether a player may manually join a channel using the /join command. A player can still be added to a channel using [ChatSpeaker:JoinChannel()](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker) or other means even if this property is false.
 	 */
 	Joinable: boolean;
@@ -211,7 +273,49 @@ export interface ChatChannel {
 	/**
 	 * Sends a message from the "System" [ChatSpeaker](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker) to the channel.
 	 */
-	SendSystemMessage(message: string): void;
+	SendSystemMessage(message: string, extraData?: ExtraData): void;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	SendSystemMessageToSpeaker(message: string, speakerName: string, extraData?: ExtraData): void;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	SendMessageObjToFilters(message: string, messageObj: ChatMessage, fromSpeaker: ChatSpeaker): void;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	CanCommunicateByUserId(userId1: number, userId2: number): boolean;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	CanCommunicate(speakerObj1: ChatSpeaker, speakerObj2: ChatSpeaker): boolean;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	SendMessageToSpeaker(message: string, speakerName: string, fromSpeakerName: string, extraData?: ExtraData): void;
+	
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	GetHistoryLog(): Array<string>;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	GetHistoryLogForSpeaker(speaker: ChatSpeaker): Array<string>;
 
 	/**
 	 * Registers a filter function, func, identified by functionId to the channel. The filter function will be called with the [ChatSpeaker](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker), the [ChatMessage](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatMessage), and the [string](https://developer.roblox.com/en-us/api-reference/lua-docs/string) name of the channel the message originated in. Changes to the message will persist and will be displayed after filtering.
@@ -251,6 +355,12 @@ export interface ChatChannel {
 	UnregisterFilterFunction(functionId: string): void;
 
 	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	FilterMessageFunctionExists(functionId: string): boolean;
+
+	/**
 	 * Registers a process command function, func, identified by functionId to the chat. Before a message is filtered, it will pass through func (and other functions registered by this). The function func should check whether the message invokes a command. If so, perform the action of the command and return true. Returning true indicates the message was indeed a command and should not be displayed. The function can be unregistered using UnregisterProcessCommandsFunction.
 	 * 
 	 * @example
@@ -281,9 +391,33 @@ export interface ChatChannel {
 	RegisterProcessCommandsFunction(functionId: string, func: Callback): void;
 
 	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	ProcessCommandsFunctionExists(functionId: string): boolean;
+
+	/**
 	 * Unregisters a command processor (registered by RegisterProcessCommandsFunction) given the identifier, functionId.
 	 */
 	UnregisterProcessCommandsFunction(functionId: string): void;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	RegisterGetWelcomeMessageFunction(func: ChatChannel['GetWelcomeMessageFunction']): void;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	UnRegisterGetWelcomeMessageFunction(): void;
+	
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	SetChannelNameColor(color: Color3): void;
 
 	//! EVENTS
 
@@ -311,6 +445,12 @@ export interface ChatChannel {
 	 * Fires when a [ChatSpeaker](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker) is unmuted.
 	 */
 	SpeakerUmuted: RBXScriptSignal<(speakerName: string) => void>;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	Destroyed: RBXScriptSignal<() => void>;
 }
 
 /**
@@ -403,24 +543,30 @@ export interface ChatSpeaker {
 	IsInChannel(channelName: string): boolean;
 
 	/**
-	 * Causes the speaker to say message and return the [ChatMessage](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatMessage) object created in doing so.
+	 * Causes the speaker to say message and return the [ChatMessage](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatMessage) object created in doing so. If no such speaker is in the channel, this message returns nil.
 	 */
 	SayMessage(message: string, channelName: string, extraData?: ExtraData): ChatMessage;
 
 	/**
 	 * Sends a message to the [ChatSpeaker](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker) with the given fromSpeaker name. If no such speaker is in the channel, this method creates a warning and the speaker will not see the message.
 	 */
-	SendMessage(message: string, channel: string, fromSpeaker: string): void;
+	SendMessage(message: string, channel: string, fromSpeaker: string, extraData?: ExtraData): void;
 
 	/**
 	 * Sends a system message to the [ChatChannel](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatChannel) with the given channelName. If the speaker is not in the channel, then this message will create a warning and other speakers in the channel will not see the message.
 	 */
-	SendSystemMessage(message: string, channelName: string): void;
+	SendSystemMessage(message: string, channelName: string, extraData?: ExtraData): void;
 
 	/**
 	 * Returns the [Player](https://developer.roblox.com/en-us/api-reference/class/Player) object associated with the speaker. If the speaker is not for a player (a bot) then this returns nil.
 	 */
 	GetPlayer(): Player | undefined;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	GetNameForDisplay(): string;
 
 	/**
 	 * Sets some extra data for the speaker under a specific key. Whenever the speaker sends a [ChatMessage](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatMessage) this extra data is attached to the message if none is explicitly provided with the message. For example, this allows the speaker’s chat color to be set.
@@ -436,6 +582,18 @@ export interface ChatSpeaker {
 	 * Sets the speaker to talk in the provided channel. Fires MainChannelSet.
 	 */
 	SetMainChannel(channelName: string): void;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	AddMutedSpeaker(speakerName: string): void;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
+	RemoveMutedSpeaker(speakerName: string): void;
 
 	//! EVENTS
 
@@ -483,5 +641,4 @@ export interface ChatSpeaker {
 	 * Fired when the speakers main channel is changed to the [ChatChannel](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatChannel) with the given channelName.
 	 */
 	MainChannelSet: RBXScriptSignal<(channelName: string) => void>;
-
 }

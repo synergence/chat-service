@@ -1,32 +1,32 @@
 {
-  "name": "@rbxts/chat-service",
-  "version": "1.0.2",
-  "description": "Roblox chat service typings",
-  "main": "out/init.lua",
-  "scripts": {
-    "prepublishOnly": "rbxtsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/synergence/rbxts-chat-service.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "Unlicense",
-  "bugs": {
-    "url": "https://github.com/synergence/rbxts-chat-service/issues"
-  },
-  "homepage": "https://github.com/synergence/rbxts-chat-service#readme",
-  "publishConfig": {
-    "access": "public"
-  },
-  "types": "out/index.d.ts",
-  "devDependencies": {
-    "@rbxts/compiler-types": "^1.0.0-beta.15.1",
-    "@rbxts/types": "^1.0.453"
-  },
-  "files": [
-    "out/",
-    "LICENSE"
-  ]
+	"name": "@rbxts/chat-service",
+	"version": "1.1.0",
+	"description": "Roblox chat service typings",
+	"main": "out/init.lua",
+	"scripts": {
+		"prepublishOnly": "rbxtsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/synergence/rbxts-chat-service.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "Unlicense",
+	"bugs": {
+		"url": "https://github.com/synergence/rbxts-chat-service/issues"
+	},
+	"homepage": "https://github.com/synergence/rbxts-chat-service#readme",
+	"publishConfig": {
+		"access": "public"
+	},
+	"types": "out/index.d.ts",
+	"devDependencies": {
+		"@rbxts/compiler-types": "^1.0.0-beta.15.1",
+		"@rbxts/types": "^1.0.453"
+	},
+	"files": [
+		"out/",
+		"LICENSE"
+	]
 }
