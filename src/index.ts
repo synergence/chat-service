@@ -21,7 +21,7 @@ export interface ChatTag {
 
 interface ExtraDataFull {
 	ChatColor: Color3;
-	NameColor: string;
+	NameColor: Color3;
 	Font: Enum.Font;
 	TextSize: number;
 	Tags: Array<ChatTag>;
@@ -94,7 +94,7 @@ export interface ChatService {
 	/**
 	 * Returns a list of the names of all non-private channels in the chat.
 	 */
-	GetChannelsList(): Array<string>;
+	GetChannelList(): Array<string>;
 
 	/**
 	 * Returns a list of the names of all channels in the chat with AutoJoin set to true.
@@ -109,7 +109,7 @@ export interface ChatService {
 
 	/**
 	 * Registers a filter function to the chat identified by functionId. Any changes to the message will persist and be displayed when the message makes it through all of the other filter functions. This function is passed the speaker’s name, the message object, and the channel the message originated in.
-	 * 
+	 *
 	 * @example
 	 * ```lua
 	 * -- Paste this example into a ModuleScript within the ChatModules folder.
@@ -117,7 +117,7 @@ export interface ChatService {
 	 * local functionId = "greenText"
 	 * local keyword = "#green"
 	 * local chatColor = Color3.new(0, 1, 0) -- green
-	 *  
+	 *
 	 * local function doFilter(speaker, messageObject, channelName)
 	 *     -- Check if the message contains the keyword
 	 *     local start, finish = string.find(messageObject.Message, keyword)
@@ -127,11 +127,11 @@ export interface ChatService {
 	 *         messageObject.ExtraData.ChatColor = chatColor
 	 *     end
 	 * end
-	 *  
+	 *
 	 * local function runChatModule(ChatService)
 	 *     ChatService:RegisterFilterMessageFunction(functionId, doFilter)
 	 * end
-	 *  
+	 *
 	 * return runChatModule
 	 * ```
 	 */
@@ -177,7 +177,7 @@ export interface ChatService {
 
 /**
  * ChatChannel is an object that stores data about a single channel, which is a means by which messages can be exchanged between [ChatSpeakers](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker). It also has access permission properties that determine the visibility of messages along with whether users may join or leave the channel manually (using /join or /leave commands).
- * 
+ *
  * By default, each player has a [ChatSpeaker](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker) that is automatically added to the "All" and "System" chat channels (although, "System" is read only). If the player is on a [Team](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker) ([Player.Team](https://developer.roblox.com/en-us/api-reference/property/Player/Team) is set), they will also have access to a channel for only that Team. Whisper messages use a channel
  */
 export interface ChatChannel {
@@ -304,7 +304,7 @@ export interface ChatChannel {
 	 * Undocumented
 	 */
 	SendMessageToSpeaker(message: string, speakerName: string, fromSpeakerName: string, extraData?: ExtraData): void;
-	
+
 	/**
 	 * @deprecated
 	 * Undocumented
@@ -319,7 +319,7 @@ export interface ChatChannel {
 
 	/**
 	 * Registers a filter function, func, identified by functionId to the channel. The filter function will be called with the [ChatSpeaker](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatSpeaker), the [ChatMessage](https://developer.roblox.com/en-us/articles/Lua-Chat-System/API/ChatMessage), and the [string](https://developer.roblox.com/en-us/api-reference/lua-docs/string) name of the channel the message originated in. Changes to the message will persist and will be displayed after filtering.
-	 * 
+	 *
 	 * @example
 	 * ```lua
 	 * -- Paste this example into a ModuleScript within the ChatModules folder.
@@ -327,7 +327,7 @@ export interface ChatChannel {
 	 * local functionId = "greenText"
 	 * local keyword = "#green"
 	 * local chatColor = Color3.new(0, 1, 0) -- green
-	 * 
+	 *
 	 * local function doFilter(speaker, messageObject, channelName)
 	 *     -- Check if the message contains the keyword
 	 *     local start, finish = string.find(messageObject.Message, keyword)
@@ -337,13 +337,13 @@ export interface ChatChannel {
 	 *         messageObject.ExtraData.ChatColor = chatColor
 	 *     end
 	 * end
-	 * 
+	 *
 	 * local function runChatModule(ChatService)
 	 *     -- Create a channel and register the filter function
 	 *     local testChannel = ChatService:AddChannel("TestChannel")
 	 *     testChannel:RegisterFilterMessageFunction(functionId, doFilter)
 	 * end
-	 * 
+	 *
 	 * return runChatModule
 	 * ```
 	 */
@@ -362,7 +362,7 @@ export interface ChatChannel {
 
 	/**
 	 * Registers a process command function, func, identified by functionId to the chat. Before a message is filtered, it will pass through func (and other functions registered by this). The function func should check whether the message invokes a command. If so, perform the action of the command and return true. Returning true indicates the message was indeed a command and should not be displayed. The function can be unregistered using UnregisterProcessCommandsFunction.
-	 * 
+	 *
 	 * @example
 	 * ```lua
 	 * -- Paste this example into a ModuleScript within the ChatModules folder.
@@ -380,11 +380,11 @@ export interface ChatChannel {
 	 *     end
 	 *     return false
 	 * end
- 	 * 
+ 	 *
 	 * local function runChatModule(ChatService)
 	 *     ChatService:RegisterProcessCommandsFunction(functionId, processCommand)
 	 * end
-	 * 
+	 *
 	 * return runChatModule
 	 * ```
 	 */
@@ -412,7 +412,7 @@ export interface ChatChannel {
 	 * Undocumented
 	 */
 	UnRegisterGetWelcomeMessageFunction(): void;
-	
+
 	/**
 	 * @deprecated
 	 * Undocumented
@@ -514,7 +514,7 @@ export interface ChatMessage {
  */
 export interface ChatSpeaker {
 	//! PROPERTIES
-	
+
 	/**
 	 * The name of the speaker, used in referencing this speaker while calling many other functions.
 	 */
