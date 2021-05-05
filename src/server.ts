@@ -636,3 +636,6 @@ export interface ChatSpeaker {
 	 */
 	MainChannelSet: RBXScriptSignal<(channelName: string) => void>;
 }
+
+// roblox-ts complains if this isn't here
+export default {};
