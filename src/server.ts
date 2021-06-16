@@ -77,7 +77,7 @@ export interface ChatService {
 	/**
 	 * Returns the speaker with the given name, or nil if it doesn’t exist.
 	 */
-	GetSpeaker(speakerName: string): ChatSpeaker;
+	GetSpeaker(speakerName: string): ChatSpeaker | undefined;
 
 	/**
 	 * @deprecated

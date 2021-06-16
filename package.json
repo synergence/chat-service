@@ -1,6 +1,6 @@
 {
 	"name": "@rbxts/chat-service",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Roblox chat service typings",
 	"main": "out/init.lua",
 	"scripts": {
