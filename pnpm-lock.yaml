@@ -1,19 +1,19 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@rbxts/compiler-types': ^1.0.0-types.0
-  '@rbxts/types': ^1.0.462
+  '@rbxts/compiler-types': 2.0.3-types.0
+  '@rbxts/types': ^1.0.642
 
 devDependencies:
-  '@rbxts/compiler-types': 1.0.0-types.0
-  '@rbxts/types': 1.0.462
+  '@rbxts/compiler-types': 2.0.3-types.0
+  '@rbxts/types': 1.0.642
 
 packages:
 
-  /@rbxts/compiler-types/1.0.0-types.0:
-    resolution: {integrity: sha512-DMYByLmapF5T04l1Jmg71BZNmR8sFhDt/aq9aV9X8JjnQimnCCBFK+FzdHh9Nx40D/o+k9vYn5aS58g8kISlYQ==}
+  /@rbxts/compiler-types/2.0.3-types.0:
+    resolution: {integrity: sha512-3tm4LTtI8UeJ+NkKUGqjmYe+Gu8G/6QXTE8Y+NRsoSM4IY84RLUAL8emDKc3pWPcLE7zzCrz7CnSQkIkhPsIYg==}
     dev: true
 
-  /@rbxts/types/1.0.462:
-    resolution: {integrity: sha512-MaCY4dAtQYVDYAZwCHN7IpGpbU89iJRUvWTjV7qO5lCbpZTCeBtDCpNyTdkP45tqFUUhIdHizRnSoUY56nCD3w==}
+  /@rbxts/types/1.0.642:
+    resolution: {integrity: sha512-pLQWRLQN5Mp4SGuLAobiHpeKqx2Q9K6ZQJliZowDYAHvBJRHE5t0dO1W7GlAPPn0JoEMZXH3lf9y92DCFrYGiw==}
     dev: true
