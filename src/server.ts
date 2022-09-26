@@ -83,6 +83,12 @@ export interface ChatService {
 	 * @deprecated
 	 * Undocumented
 	 */
+	GetSpeakerList(): Array<string>;
+
+	/**
+	 * @deprecated
+	 * Undocumented
+	 */
 	GetSpeakerByUserOrDisplayName(speakerName: string): ChatSpeaker;
 
 	/**
